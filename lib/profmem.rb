@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require 'json'
 
 module Profmem
@@ -13,7 +11,7 @@ module Profmem
     end
   end
 
-  def finalize
+  def summarize
     if path = ENV['PROFMEM']
       io = File.open(path, "w")
       ObjectSpace.dump_all(output: io)
@@ -84,5 +82,3 @@ module Profmem
 
   end
 end
-
-Profmem.run(ARGV) if $0 == __FILE__
